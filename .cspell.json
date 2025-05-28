@@ -1,0 +1,8 @@
+{
+  "version": "0.2",
+  "words": ["Merbivore"],
+  "allowCompoundWords": true,
+  "language": "en,en-US",
+  "ignorePaths": ["*.css", ".cspell.json"],
+  "useGitignore": true
+}
