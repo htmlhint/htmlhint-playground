@@ -1,1 +1,1 @@
-# htmllint.github.io
+# HTMLHint Playground for testing HTMLHint rules.

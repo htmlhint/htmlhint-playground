@@ -1,0 +1,26 @@
+{
+  "name": "htmlhint-playground",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "homepage": "https://htmlhint-playground.netlify.app/",
+  "bugs": {
+    "url": "https://github.com/htmlhint/htmlhint-playground/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/htmlhint/htmlhint-playground.git"
+  },
+  "license": "MIT",
+  "author": "HTMLHint",
+  "scripts": {
+    "htmlhint": "npx htmlhint .",
+    "pa11y-ci": "npx pa11y-ci https://htmlhint-playground.netlify.app/"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "volta": {
+    "node": "20.19.1"
+  }
+}
