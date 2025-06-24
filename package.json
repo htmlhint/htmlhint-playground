@@ -15,7 +15,8 @@
   "author": "HTMLHint",
   "scripts": {
     "htmlhint": "npx htmlhint .",
-    "pa11y-ci": "npx pa11y-ci https://htmlhint-playground.netlify.app/"
+    "pa11y-ci": "npx pa11y-ci https://htmlhint-playground.netlify.app/",
+    "serve": "npx http-server -o docs/index.html -p 8080 -c-1"
   },
   "engines": {
     "node": ">=20"
