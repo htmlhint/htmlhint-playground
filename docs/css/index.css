@@ -12,52 +12,52 @@ body {
   margin: 20px 0;
 }
 
-.muted span{
+.muted span {
   font-size: 12px;
 }
 
-#editor-title{
-    padding:20px 0;
+#editor-title {
+  padding: 20px 0;
 }
 
-#editor-toolbar{
-    float:right;
+#editor-toolbar {
+  float: right;
 }
 
-#editor{
-    border:1px solid #ccc;
-    border-radius: 4px;
-    height:300px;
+#editor {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  height: 300px;
 }
 
-#stat-bar{
-    padding:10px 0;
+#stat-bar {
+  padding: 10px 0;
 }
 
-#button-area{
-    float:right;
-    padding:0 10px;
-    display:none;
+#button-area {
+  float: right;
+  padding: 0 10px;
+  display: none;
 }
 
-.footer{
-    text-align:center;
+.footer {
+  text-align: center;
 }
 
-#options{
-    padding:20px;
+#options {
+  padding: 20px;
 }
 
-#options h3{
-    font-size: 18px;
+#options h3 {
+  font-size: 18px;
 }
 
-#options ul{
-    list-style: none;
-    margin: 0;
+#options ul {
+  list-style: none;
+  margin: 0;
 }
 
-#options li div{
-    display:none;
-    padding-left:20px;
+#options li div {
+  display: none;
+  padding-left: 20px;
 }
