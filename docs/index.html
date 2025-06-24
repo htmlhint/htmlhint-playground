@@ -2,29 +2,31 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>HTMLHint - The Static Code Analysis Tool you need for your HTML</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTMLHint - The Static Code Analysis Tool you need for your HTML</title>
+    <meta name="description" content="HTMLHint - The Static Code Analysis Tool you need for your HTML">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
-    <link rel="canonical" href="https://htmlhint-playground.netlify.app/">
-    <script defer data-domain="htmlhint-playground.netlify.app" src="https://plausible.io/js/script.hash.outbound-links.pageview-props.tagged-events.js"></script>
+    <link rel="canonical" href="https://playground.htmlhint.com/">
+    <script defer data-domain="playground.htmlhint.com" src="https://plausible.io/js/script.hash.outbound-links.pageview-props.tagged-events.js"></script>
     <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
   </head>
   <body>
-    <div class="container-narrow">
-        <a href="https://github.com/htmlhint/HTMLHint"><img style="position: absolute; top: 0; right: 0; border: 0;" src="img/forkme.png" alt="Fork me on GitHub"></a>
-        <div class="masthead">
+    <div class="container">
+      <a href="https://github.com/htmlhint/HTMLHint">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="img/forkme.png" alt="Fork me on GitHub">
+      </a>
+        <nav class="masthead">
           <ul class="nav nav-pills pull-right">
             <li class="active"><a href="https://htmlhint.com/">Home</a></li>
             <li><a href="https://github.com/htmlhint/HTMLHint/wiki/About">About</a></li>
-            <li><a href="https://github.com/htmlhint/HTMLHint/wiki/Usage">Usage</a></li>
-            <li><a href="https://github.com/htmlhint/HTMLHint/wiki/Rules">Rules</a></li>
-            <li><a href="https://github.com/htmlhint/HTMLHint/wiki/Developer-guide">Develop</a></li>
+            <li><a href="https://htmlhint.com/usage/cli/">Usage</a></li>
+            <li><a href="https://htmlhint.com/rules/">Rules</a></li>
+            <li><a href="https://github.com/htmlhint/HTMLHint/">Develop</a></li>
           </ul>
-          <h3 class="muted">HTMLHint <span id="ver"></span></h3>
-        </div>
+          <h1 class="muted">HTMLHint <span id="ver"></span></h1>
+        </nav>
         <hr>
         <div id="editor-title">
             <strong>Place your HTML code here:</strong>
@@ -79,12 +81,12 @@
 
         <div id="stat-bar">
             <span id="hint-state"></span>
-            <div id="button-area"><button id="show-last" class="btn btn-mini btn-primary" type="button" title="Ctrl + Left">Previous</button> <button id="show-next" class="btn btn-mini btn-primary" type="button" title="Ctrl + Right">Next</button></div>
+            <div id="button-area"><button id="show-last" class="btn btn-sm btn-primary" type="button" title="Ctrl + Left">Previous</button> <button id="show-next" class="btn btn-sm btn-primary" type="button" title="Ctrl + Right">Next</button></div>
         </div>
 
         <div id="options">
-            <div class="row-fluid">
-              <div class="span3">
+            <div class="row">
+              <div class="col-12 col-sm-4">
                 <h3>Standard</h3>
                 <ul>
                     <li><label class="checkbox" title="Tagname must be lowercase."><input type="checkbox" id="tagname-lowercase"> tagname-lowercase</label></li>
@@ -101,19 +103,19 @@
                     <li><label class="checkbox" title="&lt;title&gt; must be present in &lt;head&gt; tag.."><input type="checkbox" id="title-require"> title-require</label></li>
                 </ul>
               </div>
-              <div class="span3">
+              <div class="col-12 col-sm-4">
                 <h3>Performance</h3>
                 <ul>
                     <li><label class="checkbox" title="The script tag can not be used in head."><input type="checkbox" id="head-script-disabled"> head-script-disabled</label></li>
                 </ul>
               </div>
-              <div class="span2">
+              <div class="col-12 col-sm-4">
                 <h3>Accessibility</h3>
                 <ul>
                     <li><label class="checkbox" title="Alt of img tag must be set value."><input type="checkbox" id="alt-require"> alt-require</label></li>
                 </ul>
               </div>
-              <div class="span3">
+              <div class="col-12 col-sm-4">
                 <h3>Specification</h3>
                 <ul>
                     <li><label class="checkbox" title="Doctype must be html5."><input type="checkbox" id="doctype-html5"> doctype-html5</label></li>
@@ -136,17 +138,17 @@
                     <li><label class="checkbox" title="Attribute value cant not use unsafe chars."><input type="checkbox" id="attr-unsafe-chars"> attr-unsafe-chars</label></li>
                 </ul>
               </div>
-              <div class="span1">
+              <div class="col-12 col-sm-4">
                 <h3>Other</h3>
                 <ul>
-                    <li><label class="checkbox" title="Scan css with csslint."><input type="checkbox" id="csslint"> csslint</label></li>
+                    <li><label class="checkbox" title="Scan CSS with csslint."><input type="checkbox" id="csslint"> csslint</label></li>
                     <li><label class="checkbox" title="Scan script with jshint."><input type="checkbox" id="jshint"> jshint</label></li>
                 </ul>
               </div>
             </div>
             <br>
-            <div class="row-fluid">
-                <div class="span2 offset5">
+            <div class="row">
+                <div class="text-center col-12">
                     <a id="download-config" class="btn btn-block btn-success" type="button">
                         Download rc
                         <i class="icon-download-alt icon-white"></i>
@@ -161,7 +163,7 @@
     </div>
     <script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/jquery.cookie.js"></script>
-    <script src="js/htmlhint.js"></script>
+    <script src="js/htmlhint.min.js"></script>
     <script src="js/ace/ace.js" charset="utf-8"></script>
     <script src="js/csslint.js"></script>
     <script src="js/jshint.js"></script>
