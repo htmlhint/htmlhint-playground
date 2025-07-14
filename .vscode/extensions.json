@@ -2,6 +2,7 @@
   "recommendations": [
     "dbaeumer.vscode-eslint",
     "EditorConfig.EditorConfig",
+    "HTMLHint.vscode-htmlhint",
     "streetsidesoftware.code-spell-checker"
   ]
 }
