@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "HTMLHint Playground",
-  "homepage": "https://htmlhint-playground.netlify.app/",
+  "homepage": "https://playground.htmlhint.com/",
   "bugs": {
     "url": "https://github.com/htmlhint/htmlhint-playground/issues"
   },
@@ -18,9 +18,10 @@
   "license": "MIT",
   "author": "HTMLHint",
   "scripts": {
+    "eslint": "npx eslint docs/js/*.js --fix",
     "htmlhint": "npx htmlhint .",
-    "pa11y-ci": "npx pa11y-ci https://htmlhint-playground.netlify.app/",
-    "prettier": "npx prettier --write .",
+    "pa11y-ci": "npx pa11y-ci https://playground.htmlhint.com/",
+    "prettier": "npx prettier --write .{css,json,yml}",
     "serve": "npx http-server -o docs/index.html -p 8080 -c-1"
   },
   "engines": {

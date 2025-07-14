@@ -1,8 +1,8 @@
 {
   "version": "0.2",
-  "words": ["Merbivore"],
+  "words": ["dbaeumer", "fediverse", "Merbivore"],
   "allowCompoundWords": true,
   "language": "en,en-US",
-  "ignorePaths": ["*.css", ".cspell.json"],
+  "ignorePaths": ["*.css", ".cspell.json", "*.min.*"],
   "useGitignore": true
 }
