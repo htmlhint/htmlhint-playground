@@ -1,9 +1,17 @@
-name: Website
+name: "Deploy to GitHub Pages"
 
 on:
   pull_request:
   push:
+    branches:
+      - main
   workflow_dispatch:
+
+# Allow this job to clone the repo and create a page deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build:
@@ -11,15 +19,16 @@ jobs:
     steps:
       - name: ⬇️ Checkout
         uses: actions/checkout@v4
-
-      - name: ⎔ Setup node
-        uses: actions/setup-node@v4
-        with:
-          cache: npm
-          cache-dependency-path: package-lock.json
-
-      - name: 📥 Download deps
-        run: npm ci
-
-      - name: Run build
-        run: npm run build
+      - name: Install, build, and upload your site
+        uses: withastro/action@v3
+`
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
