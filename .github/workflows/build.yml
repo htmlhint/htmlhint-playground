@@ -1,0 +1,38 @@
+name: Website
+
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout
+        uses: actions/checkout@v4
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v4
+        with:
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: 📥 Download deps
+        run: npm ci
+
+      - name: Run build
+        run: npm run build
+
+      - name: Run HTMLHint (SARIF)
+        run: |
+          cd website
+          npm run htmlhint-sarif || true
+        # Continue even if HTMLHint finds issues
+
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: website/htmlhint.sarif
+          category: HTMLHint
+        if: always()
