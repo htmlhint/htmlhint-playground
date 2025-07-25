@@ -12,3 +12,4 @@ alwaysApply: true
 - Use latest Astro for building the website.
 - Locally host JS/CSS - don't use third-party CDNs.
 - All HTML must be accessible.
+- Use Bootstrap utility CSS classes for styling rather than custom CSS.

@@ -1,0 +1,30 @@
+---
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <meta name="description" content="HTMLHint - The Static Code Analysis Tool you need for your HTML">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <meta name="color-scheme" content="light"/>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/index.css" rel="stylesheet">
+    <link rel="canonical" href="https://playground.htmlhint.com/">
+    <meta name="fediverse:creator" content="@htmlhint@mastodon.social">
+    <script defer data-domain="playground.htmlhint.com" src="https://plausible.io/js/script.hash.outbound-links.pageview-props.tagged-events.js"></script>
+    <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+    <script is:inline src="/js/htmlhint.min.js"></script>
+  </head>
+  <body>
+    <slot />
+    <script is:inline src="/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
