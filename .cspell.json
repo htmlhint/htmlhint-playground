@@ -4,7 +4,8 @@
     "dbaeumer",
     "fediverse",
     "Merbivore",
-    "Monokai"
+    "Monokai",
+    "SARIF"
   ],
   "allowCompoundWords": true,
   "language": "en,en-US",
