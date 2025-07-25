@@ -1,0 +1,142 @@
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.masthead {
+  margin-bottom: 20px;
+}
+
+.masthead h1 {
+  margin: 0;
+  line-height: 40px;
+}
+
+#editor-title {
+  margin-bottom: 10px;
+}
+
+#editor-title strong {
+  font-size: 16px;
+}
+
+#editor-toolbar {
+  float: right;
+}
+
+#editor {
+  height: 400px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#stat-bar {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#button-area {
+  display: none;
+}
+
+#button-area button {
+  margin-left: 5px;
+}
+
+#options {
+  margin-top: 20px;
+}
+
+#options h3 {
+  margin-top: 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#options ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#options li {
+  margin-bottom: 5px;
+}
+
+#options .checkbox {
+  display: block;
+  cursor: pointer;
+  font-weight: normal;
+}
+
+#options .checkbox input {
+  margin-right: 5px;
+}
+
+#options .span7 {
+  width: 100%;
+  margin-top: 5px;
+}
+
+#id-class-value_valuearea,
+#space-tab-mixed-disabled_valuearea,
+#href-abs-or-rel_valuearea {
+  display: none;
+  margin-top: 5px;
+}
+
+.github-fork {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 0;
+  z-index: 1000;
+}
+
+.github-fork img {
+  border: 0;
+}
+
+.opacity-75 {
+  opacity: 0.75;
+}
+
+/* Bootstrap overrides for better compatibility */
+.nav-pills > li > a {
+  border-radius: 4px;
+}
+
+.nav-pills > li.active > a {
+  background-color: #337ab7;
+}
+
+.nav-pills > li.active > a:hover {
+  background-color: #286090;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #editor-toolbar {
+    float: none;
+    margin-top: 10px;
+  }
+
+  #stat-bar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #button-area {
+    width: 100%;
+    text-align: center;
+  }
+}

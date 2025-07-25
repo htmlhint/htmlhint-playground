@@ -49,3 +49,4 @@ jobs:
           VALIDATE_JSON_PRETTIER: false
           VALIDATE_JSCPD: false
           VALIDATE_NATURAL_LANGUAGE: false
+          VALIDTAE_YAML_PRETTIER: false
