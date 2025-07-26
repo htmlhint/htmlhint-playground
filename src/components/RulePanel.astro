@@ -8,13 +8,19 @@
       <h3>Standard</h3>
       <ul>
         <li><label class="checkbox" title="Tagname must be lowercase."><input type="checkbox" class="form-check-input" id="tagname-lowercase"> tagname-lowercase</label></li>
+        <li><label class="checkbox" title="Tag names should not contain special characters."><input type="checkbox" class="form-check-input" id="tagname-specialchars"> tagname-specialchars</label></li>
         <li><label class="checkbox" title="Attribute name must be lowercase."><input type="checkbox" class="form-check-input" id="attr-lowercase"> attr-lowercase</label></li>
         <li><label class="checkbox" title="Attribute value must closed by double quotes."><input type="checkbox" class="form-check-input" id="attr-value-double-quotes"> attr-value-double-quotes</label></li>
         <li><label class="checkbox" title="Attribute must set value."><input type="checkbox" class="form-check-input" id="attr-value-not-empty"> attr-value-not-empty</label></li>
         <li><label class="checkbox" title="Attribute name can not occur more than once."><input type="checkbox" class="form-check-input" id="attr-no-duplication"> attr-no-duplication</label></li>
+        <li><label class="checkbox" title="Attribute should not have unnecessary whitespace."><input type="checkbox" class="form-check-input" id="attr-no-unnecessary-whitespace"> attr-no-unnecessary-whitespace</label></li>
+        <li><label class="checkbox" title="Attributes should be sorted."><input type="checkbox" class="form-check-input" id="attr-sorted"> attr-sorted</label></li>
+        <li><label class="checkbox" title="Attribute values should not be duplicated."><input type="checkbox" class="form-check-input" id="attr-value-no-duplication"> attr-value-no-duplication</label></li>
+        <li><label class="checkbox" title="Attribute whitespace rules."><input type="checkbox" class="form-check-input" id="attr-whitespace"> attr-whitespace</label></li>
         <li><label class="checkbox" title="Doctype must be first."><input type="checkbox" class="form-check-input" id="doctype-first"> doctype-first</label></li>
         <li><label class="checkbox" title="Tag must be paired."><input type="checkbox" class="form-check-input" id="tag-pair"> tag-pair</label></li>
         <li><label class="checkbox" title="The empty tag must closed by self."><input type="checkbox" class="form-check-input" id="tag-self-close"> tag-self-close</label></li>
+        <li><label class="checkbox" title="Obsolete tags should not be used."><input type="checkbox" class="form-check-input" id="tag-no-obsolete"> tag-no-obsolete</label></li>
         <li><label class="checkbox" title="Special characters must be escaped."><input type="checkbox" class="form-check-input" id="spec-char-escape"> spec-char-escape</label></li>
         <li><label class="checkbox" title="Id must be unique."><input type="checkbox" class="form-check-input" id="id-unique"> id-unique</label></li>
         <li><label class="checkbox" title="Src of img(script,link) must set value."><input type="checkbox" class="form-check-input" id="src-not-empty"> src-not-empty</label></li>
@@ -29,6 +35,7 @@
       <h3>Performance</h3>
       <ul>
         <li><label class="checkbox" title="The script tag can not be used in head."><input type="checkbox" class="form-check-input" id="head-script-disabled"> head-script-disabled</label></li>
+        <li><label class="checkbox" title="Script tags should be disabled."><input type="checkbox" class="form-check-input" id="script-disabled"> script-disabled</label></li>
       </ul>
     </div>
     <div class="col-12 col-sm-4">
