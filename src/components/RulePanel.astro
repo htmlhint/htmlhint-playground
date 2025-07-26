@@ -5,7 +5,20 @@
 <div id="options">
   <div class="row">
     <div class="col-12 col-sm-4">
-      <h3>Standard</h3>
+      <h3>HTML Structure</h3>
+      <ul>
+        <li><label class="checkbox" title="Doctype must be first."><input type="checkbox" class="form-check-input" id="doctype-first"> doctype-first</label></li>
+        <li><label class="checkbox" title="Doctype must be html5."><input type="checkbox" class="form-check-input" id="doctype-html5"> doctype-html5</label></li>
+        <li><label class="checkbox" title="&lt;title&gt; must be present in &lt;head&gt; tag.."><input type="checkbox" class="form-check-input" id="title-require"> title-require</label></li>
+        <li><label class="checkbox" title="&lt;main&gt; element must be present in the document."><input type="checkbox" class="form-check-input" id="main-require"> main-require</label></li>
+        <li><label class="checkbox" title="H1 element must be present in the document."><input type="checkbox" class="form-check-input" id="h1-require"> h1-require</label></li>
+        <li><label class="checkbox" title="Tag must be paired."><input type="checkbox" class="form-check-input" id="tag-pair"> tag-pair</label></li>
+        <li><label class="checkbox" title="The empty tag must closed by self."><input type="checkbox" class="form-check-input" id="tag-self-close"> tag-self-close</label></li>
+        <li><label class="checkbox" title="Obsolete tags should not be used."><input type="checkbox" class="form-check-input" id="tag-no-obsolete"> tag-no-obsolete</label></li>
+      </ul>
+    </div>
+    <div class="col-12 col-sm-4">
+      <h3>Tag & Attribute Format</h3>
       <ul>
         <li><label class="checkbox" title="Tagname must be lowercase."><input type="checkbox" class="form-check-input" id="tagname-lowercase"> tagname-lowercase</label></li>
         <li><label class="checkbox" title="Tag names should not contain special characters."><input type="checkbox" class="form-check-input" id="tagname-specialchars"> tagname-specialchars</label></li>
@@ -13,62 +26,64 @@
         <li><label class="checkbox" title="Attribute value must closed by double quotes."><input type="checkbox" class="form-check-input" id="attr-value-double-quotes"> attr-value-double-quotes</label></li>
         <li><label class="checkbox" title="Attribute must set value."><input type="checkbox" class="form-check-input" id="attr-value-not-empty"> attr-value-not-empty</label></li>
         <li><label class="checkbox" title="Attribute name can not occur more than once."><input type="checkbox" class="form-check-input" id="attr-no-duplication"> attr-no-duplication</label></li>
-        <li><label class="checkbox" title="Attribute should not have unnecessary whitespace."><input type="checkbox" class="form-check-input" id="attr-no-unnecessary-whitespace"> attr-no-unnecessary-whitespace</label></li>
-        <li><label class="checkbox" title="Attributes should be sorted."><input type="checkbox" class="form-check-input" id="attr-sorted"> attr-sorted</label></li>
         <li><label class="checkbox" title="Attribute values should not be duplicated."><input type="checkbox" class="form-check-input" id="attr-value-no-duplication"> attr-value-no-duplication</label></li>
+        <li><label class="checkbox" title="Attributes should be sorted."><input type="checkbox" class="form-check-input" id="attr-sorted"> attr-sorted</label></li>
+        <li><label class="checkbox" title="Attribute should not have unnecessary whitespace."><input type="checkbox" class="form-check-input" id="attr-no-unnecessary-whitespace"> attr-no-unnecessary-whitespace</label></li>
         <li><label class="checkbox" title="Attribute whitespace rules."><input type="checkbox" class="form-check-input" id="attr-whitespace"> attr-whitespace</label></li>
-        <li><label class="checkbox" title="Doctype must be first."><input type="checkbox" class="form-check-input" id="doctype-first"> doctype-first</label></li>
-        <li><label class="checkbox" title="Tag must be paired."><input type="checkbox" class="form-check-input" id="tag-pair"> tag-pair</label></li>
-        <li><label class="checkbox" title="The empty tag must closed by self."><input type="checkbox" class="form-check-input" id="tag-self-close"> tag-self-close</label></li>
-        <li><label class="checkbox" title="Obsolete tags should not be used."><input type="checkbox" class="form-check-input" id="tag-no-obsolete"> tag-no-obsolete</label></li>
-        <li><label class="checkbox" title="Special characters must be escaped."><input type="checkbox" class="form-check-input" id="spec-char-escape"> spec-char-escape</label></li>
-        <li><label class="checkbox" title="Id must be unique."><input type="checkbox" class="form-check-input" id="id-unique"> id-unique</label></li>
-        <li><label class="checkbox" title="Src of img(script,link) must set value."><input type="checkbox" class="form-check-input" id="src-not-empty"> src-not-empty</label></li>
-        <li><label class="checkbox" title="&lt;title&gt; must be present in &lt;head&gt; tag.."><input type="checkbox" class="form-check-input" id="title-require"> title-require</label></li>
-        <li><label class="checkbox" title="&lt;main&gt; element must be present in the document."><input type="checkbox" class="form-check-input" id="main-require"> main-require</label></li>
+        <li><label class="checkbox" title="Attribute value cant not use unsafe chars."><input type="checkbox" class="form-check-input" id="attr-unsafe-chars"> attr-unsafe-chars</label></li>
+      </ul>
+    </div>
+    <div class="col-12 col-sm-4">
+      <h3>Meta & Head</h3>
+      <ul>
         <li><label class="checkbox" title="Meta charset must be present in &lt;head&gt; tag."><input type="checkbox" class="form-check-input" id="meta-charset-require"> meta-charset-require</label></li>
         <li><label class="checkbox" title="Meta description must be present in &lt;head&gt; tag."><input type="checkbox" class="form-check-input" id="meta-description-require"> meta-description-require</label></li>
         <li><label class="checkbox" title="Meta viewport must be present in &lt;head&gt; tag."><input type="checkbox" class="form-check-input" id="meta-viewport-require"> meta-viewport-require</label></li>
-      </ul>
-    </div>
-    <div class="col-12 col-sm-4">
-      <h3>Performance</h3>
-      <ul>
-        <li><label class="checkbox" title="The script tag can not be used in head."><input type="checkbox" class="form-check-input" id="head-script-disabled"> head-script-disabled</label></li>
-        <li><label class="checkbox" title="Script tags should be disabled."><input type="checkbox" class="form-check-input" id="script-disabled"> script-disabled</label></li>
-      </ul>
-    </div>
-    <div class="col-12 col-sm-4">
-      <h3>Accessibility</h3>
-      <ul>
-        <li><label class="checkbox" title="Alt of img tag must be set value."><input type="checkbox" class="form-check-input" id="alt-require"> alt-require</label></li>
         <li><label class="checkbox" title="HTML lang attribute must be present."><input type="checkbox" class="form-check-input" id="html-lang-require"> html-lang-require</label></li>
-        <li><label class="checkbox" title="H1 element must be present in the document."><input type="checkbox" class="form-check-input" id="h1-require"> h1-require</label></li>
+        <li><label class="checkbox" title="The script tag can not be used in head."><input type="checkbox" class="form-check-input" id="head-script-disabled"> head-script-disabled</label></li>
+      </ul>
+    </div>
+    <div class="col-12 col-sm-4">
+      <h3>Content & Media</h3>
+      <ul>
+        <li><label class="checkbox" title="Src of img(script,link) must set value."><input type="checkbox" class="form-check-input" id="src-not-empty"> src-not-empty</label></li>
+        <li><label class="checkbox" title="Alt of img tag must be set value."><input type="checkbox" class="form-check-input" id="alt-require"> alt-require</label></li>
+        <li><label class="checkbox" title="Special characters must be escaped."><input type="checkbox" class="form-check-input" id="spec-char-escape"> spec-char-escape</label></li>
+        <li>
+          <label class="checkbox" title="Href must be absolute or relative."><input type="checkbox" class="form-check-input" id="href-abs-or-rel"> href-abs-or-rel</label>
+          <div id="href-abs-or-rel_valuearea"><select id="href-abs-or-rel_value" class="span7 form-select form-select-sm ms-4" style="width:fit-content"><option value="abs">abs</option><option value="rel">rel</option></select></div>
+        </li>
+      </ul>
+    </div>
+    <div class="col-12 col-sm-4">
+      <h3>Forms & Interactive</h3>
+      <ul>
         <li><label class="checkbox" title="Button must have type attribute."><input type="checkbox" class="form-check-input" id="button-type-require"> button-type-require</label></li>
         <li><label class="checkbox" title="Input must have associated label."><input type="checkbox" class="form-check-input" id="input-requires-label"> input-requires-label</label></li>
       </ul>
     </div>
     <div class="col-12 col-sm-4">
-      <h3>Specification</h3>
+      <h3>Identifiers & Classes</h3>
       <ul>
-        <li><label class="checkbox" title="Doctype must be html5."><input type="checkbox" class="form-check-input" id="doctype-html5"> doctype-html5</label></li>
+        <li><label class="checkbox" title="Id must be unique."><input type="checkbox" class="form-check-input" id="id-unique"> id-unique</label></li>
         <li>
           <label class="checkbox" title="Id and class value must meet some rules: underline, dash, hump."><input type="checkbox" class="form-check-input" id="id-class-value"> id-class-value</label>
           <div id="id-class-value_valuearea"><select id="id-class-value_value" class="span7 form-select form-select-sm ms-4" style="width:fit-content"><option value="underline">underline</option><option value="dash">dash</option><option value="hump">hump</option></select></div>
         </li>
+        <li><label class="checkbox" title="Id and class can not use ad keyword, it will blocked by adblock software."><input type="checkbox" class="form-check-input" id="id-class-ad-disabled"> id-class-ad-disabled</label></li>
+      </ul>
+    </div>
+    <div class="col-12 col-sm-4">
+      <h3>Code Quality</h3>
+      <ul>
         <li><label class="checkbox" title="Style tag can not be use."><input type="checkbox" class="form-check-input" id="style-disabled"> style-disabled</label></li>
         <li><label class="checkbox" title="Inline style cannot be use."><input type="checkbox" class="form-check-input" id="inline-style-disabled"> inline-style-disabled</label></li>
         <li><label class="checkbox" title="Inline script cannot be use."><input type="checkbox" class="form-check-input" id="inline-script-disabled"> inline-script-disabled</label></li>
+        <li><label class="checkbox" title="Script tags should be disabled."><input type="checkbox" class="form-check-input" id="script-disabled"> script-disabled</label></li>
         <li>
           <label class="checkbox" title="Spaces and tabs can not mixed in front of line."><input type="checkbox" class="form-check-input" id="space-tab-mixed-disabled"> space-tab-mixed-disabled</label>
           <div id="space-tab-mixed-disabled_valuearea"><select id="space-tab-mixed-disabled_value" class="span7 form-select form-select-sm ms-4" style="width:fit-content"><option value="true">true</option><option value="space">space</option><option value="tab">tab</option></select></div>
         </li>
-        <li><label class="checkbox" title="Id and class can not use ad keyword, it will blocked by adblock software."><input type="checkbox" class="form-check-input" id="id-class-ad-disabled"> id-class-ad-disabled</label></li>
-        <li>
-          <label class="checkbox" title="Href must be absolute or relative."><input type="checkbox" class="form-check-input" id="href-abs-or-rel"> href-abs-or-rel</label>
-          <div id="href-abs-or-rel_valuearea"><select id="href-abs-or-rel_value" class="span7 form-select form-select-sm ms-4" style="width:fit-content"><option value="abs">abs</option><option value="rel">rel</option></select></div>
-        </li>
-        <li><label class="checkbox" title="Attribute value cant not use unsafe chars."><input type="checkbox" class="form-check-input" id="attr-unsafe-chars"> attr-unsafe-chars</label></li>
       </ul>
     </div>
   </div>
