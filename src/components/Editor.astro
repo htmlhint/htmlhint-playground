@@ -55,4 +55,50 @@
 &lt;/body&gt;
 &lt;/html&gt;</div>
 
-<script src="/js/ace/ace.js" charset="utf-8"></script>
+<script>
+  import ace from 'ace-builds';
+  import 'ace-builds/src-noconflict/mode-html';
+  import 'ace-builds/src-noconflict/theme-merbivore';
+  import 'ace-builds/src-noconflict/theme-chrome';
+  import 'ace-builds/src-noconflict/theme-clouds';
+  import 'ace-builds/src-noconflict/theme-crimson_editor';
+  import 'ace-builds/src-noconflict/theme-dawn';
+  import 'ace-builds/src-noconflict/theme-dreamweaver';
+  import 'ace-builds/src-noconflict/theme-eclipse';
+  import 'ace-builds/src-noconflict/theme-github';
+  import 'ace-builds/src-noconflict/theme-solarized_light';
+  import 'ace-builds/src-noconflict/theme-textmate';
+  import 'ace-builds/src-noconflict/theme-tomorrow';
+  import 'ace-builds/src-noconflict/theme-xcode';
+  import 'ace-builds/src-noconflict/theme-ambiance';
+  import 'ace-builds/src-noconflict/theme-chaos';
+  import 'ace-builds/src-noconflict/theme-clouds_midnight';
+  import 'ace-builds/src-noconflict/theme-cobalt';
+  import 'ace-builds/src-noconflict/theme-idle_fingers';
+  import 'ace-builds/src-noconflict/theme-kr_theme';
+  import 'ace-builds/src-noconflict/theme-merbivore_soft';
+  import 'ace-builds/src-noconflict/theme-mono_industrial';
+  import 'ace-builds/src-noconflict/theme-monokai';
+  import 'ace-builds/src-noconflict/theme-pastel_on_dark';
+  import 'ace-builds/src-noconflict/theme-solarized_dark';
+  import 'ace-builds/src-noconflict/theme-twilight';
+  import 'ace-builds/src-noconflict/theme-tomorrow_night';
+  import 'ace-builds/src-noconflict/theme-tomorrow_night_blue';
+  import 'ace-builds/src-noconflict/theme-tomorrow_night_bright';
+  import 'ace-builds/src-noconflict/theme-tomorrow_night_eighties';
+  import 'ace-builds/src-noconflict/theme-vibrant_ink';
+
+  // Make ace globally available
+  window.ace = ace;
+</script>
+
+<script>
+  import HTMLHint from 'htmlhint';
+
+  // Make HTMLHint globally available
+  window.HTMLHint = HTMLHint;
+</script>
+
+<script>
+  import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+</script>
