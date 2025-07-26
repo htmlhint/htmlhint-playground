@@ -1,0 +1,48 @@
+const purgecss = require('@fullhuman/postcss-purgecss');
+const purge = purgecss.default || purgecss;
+
+module.exports = {
+  plugins: [
+    purge({
+      content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}', './public/**/*.html'],
+      defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
+      safelist: [
+        'active',
+        'show',
+        'collapsed',
+        'fade',
+        'collapse',
+        'collapsing',
+        'dropdown-menu',
+        'dropdown-toggle',
+        'btn-check',
+        'form-check-input',
+        'form-select',
+        'form-select-sm',
+        'btn',
+        'btn-sm',
+        'btn-primary',
+        'btn-success',
+        'btn-block',
+        'text-center',
+        'text-muted',
+        'opacity-75',
+        'small',
+        'h3',
+        'bg-black',
+        'bg-opacity-25',
+        'float-end',
+        'nav',
+        'nav-pills',
+        'container',
+        'row',
+        'col-12',
+        'col-sm-4',
+        'mb-1',
+        'mb-3',
+        'ms-4',
+        'visually-hidden',
+      ],
+    }),
+  ],
+};

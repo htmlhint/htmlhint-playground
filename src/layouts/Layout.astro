@@ -7,6 +7,8 @@ const { title } = Astro.props;
 
 // Import Bootstrap CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
+// Import custom styles
+import '../styles/index.css';
 ---
 
 <!doctype html>
@@ -18,7 +20,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
     <meta name="description" content="HTMLHint - The Static Code Analysis Tool you need for your HTML">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <meta name="color-scheme" content="light"/>
-    <link href="/css/index.css" rel="stylesheet">
+
     <link rel="canonical" href="https://playground.htmlhint.com/">
     <meta name="fediverse:creator" content="@htmlhint@mastodon.social">
     <script defer data-domain="playground.htmlhint.com" src="https://plausible.io/js/script.hash.outbound-links.pageview-props.tagged-events.js"></script>
