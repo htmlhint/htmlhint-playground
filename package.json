@@ -31,8 +31,8 @@
   },
   "dependencies": {
     "ace-builds": "^1.35.0",
-    "astro": "^5.13.1",
-    "bootstrap": "^5.3.7",
+    "astro": "^5.13.5",
+    "bootstrap": "^5.3.8",
     "htmlhint": "^1.6.3"
   },
   "devDependencies": {
