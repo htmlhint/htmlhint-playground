@@ -1,14 +1,14 @@
-name: "CodeQL"
+name: 'CodeQL'
 
 on:
   push:
     branches:
       - main
-      - "!dependabot/**"
+      - '!dependabot/**'
   pull_request:
     branches:
       - main
-      - "!dependabot/**"
+      - '!dependabot/**'
   workflow_dispatch:
 
 jobs:
@@ -23,11 +23,13 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
+        with:
+          persist-credentials: false
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
-          languages: "javascript"
+          languages: 'javascript'
           queries: +security-and-quality
 
       - name: Perform CodeQL Analysis
