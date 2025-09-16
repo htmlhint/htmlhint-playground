@@ -30,8 +30,8 @@
     "pa11y-ci": "npx pa11y-ci https://playground.htmlhint.com/"
   },
   "dependencies": {
-    "ace-builds": "^1.35.0",
-    "astro": "^5.13.5",
+    "ace-builds": "^1.43.3",
+    "astro": "^5.13.7",
     "bootstrap": "^5.3.8",
     "htmlhint": "^1.7.0"
   },
