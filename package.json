@@ -33,7 +33,7 @@
     "ace-builds": "^1.35.0",
     "astro": "^5.13.5",
     "bootstrap": "^5.3.8",
-    "htmlhint": "^1.6.3"
+    "htmlhint": "^1.7.0"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
