@@ -1,7 +1,7 @@
 version: 2
 updates:
   - package-ecosystem: npm
-    directory: "/"
+    directory: '/'
     schedule:
       interval: monthly
     versioning-strategy: increase
@@ -9,11 +9,19 @@ updates:
       dependencies:
         applies-to: version-updates
         patterns:
-          - "*"
+          - '*'
         update-types:
-          - "minor"
-          - "patch"
+          - 'minor'
+          - 'patch'
   - package-ecosystem: github-actions
-    directory: "/"
+    directory: '/'
     schedule:
-      interval: weekly
+      interval: monthly
+    groups:
+      dependencies:
+        applies-to: version-updates
+        patterns:
+          - '*'
+        update-types:
+          - 'minor'
+          - 'patch'
