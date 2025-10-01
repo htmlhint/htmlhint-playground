@@ -31,9 +31,9 @@
   },
   "dependencies": {
     "ace-builds": "^1.43.3",
-    "astro": "^5.13.7",
+    "astro": "^5.14.1",
     "bootstrap": "^5.3.8",
-    "htmlhint": "^1.7.0"
+    "htmlhint": "^1.7.1"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
