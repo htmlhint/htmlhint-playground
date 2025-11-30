@@ -3,6 +3,7 @@
     "dbaeumer.vscode-eslint",
     "EditorConfig.EditorConfig",
     "HTMLHint.vscode-htmlhint",
+    "prettier.prettier-vscode",
     "streetsidesoftware.code-spell-checker"
   ]
 }
