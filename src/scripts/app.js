@@ -254,7 +254,7 @@ function initOptions() {
   if (versionElement && window.HTMLHint) {
     // The new HTMLHint library doesn't expose version/release directly
     // We'll use a fixed version since we know it's 1.6.3
-    versionElement.textContent = 'v1.6.3';
+    versionElement.textContent = 'v1.8.0';
   }
 
   // Handle checkbox changes
