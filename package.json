@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.6",
-    "@fullhuman/postcss-purgecss": "^7.0.2",
+    "@fullhuman/postcss-purgecss": "^8.0.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "eslint": "8.57.1",
