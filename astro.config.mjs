@@ -12,13 +12,6 @@ export default defineConfig({
     },
     build: {
       cssCodeSplit: true,
-      rollupOptions: {
-        output: {
-          manualChunks: {
-            bootstrap: ['bootstrap'],
-          },
-        },
-      },
     },
   },
 });
