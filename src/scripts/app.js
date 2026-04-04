@@ -106,7 +106,7 @@ function initEditor() {
   editor.setTheme("ace/theme/" + settings.editorTheme);
   editor.getSession().setMode("ace/mode/html");
 
-  editor.on('change', function(e) {
+  editor.on('change', function() {
     clearTimeout(upTimer);
     upTimer = setTimeout(updateHTMLHint, 500);
   });
