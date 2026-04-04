@@ -4,13 +4,13 @@
     "coliff",
     "dbaeumer",
     "fediverse",
+    "htmlhint",
     "Merbivore",
     "Monokai",
     "SARIF",
     "withastro",
     "ZIZMOR"
   ],
-  "allowCompoundWords": true,
   "language": "en,en-US",
   "ignorePaths": [
     "*.css",
