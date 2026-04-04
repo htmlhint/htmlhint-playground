@@ -6,7 +6,7 @@ import globals from 'globals';
 
 export default [
   {
-    ignores: ['**/*.d.ts', '.astro/**', 'dist']
+    ignores: ['**/*.d.ts', '.astro/**', 'dist/**']
   },
   {
     ...js.configs.recommended,
