@@ -7,7 +7,6 @@ A modern, interactive playground for testing HTMLHint rules and configurations. 
 - **Real-time HTML validation** using the latest HTMLHint library
 - **Interactive code editor** powered by Ace Editor
 - **Comprehensive rule configuration** with all HTMLHint rules
-- **Theme customization** with multiple editor themes
 - **Configuration export** - download your rule settings as `.htmlhintrc`
 - **Keyboard shortcuts** for navigating between hints
 - **Responsive design** that works on desktop and mobile
@@ -110,7 +109,6 @@ The playground supports all HTMLHint rules organized into categories:
 ### Editor Features
 
 - **Syntax highlighting** for HTML
-- **Multiple themes** (light and dark)
 - **Real-time validation** with 500ms debounce
 - **Error annotations** in the editor
 - **Keyboard navigation** between hints (Ctrl+Left/Right)
@@ -120,7 +118,6 @@ The playground supports all HTMLHint rules organized into categories:
 - **Persistent settings** saved in localStorage
 - **Rule customization** with checkboxes and dropdowns
 - **Configuration export** as `.htmlhintrc` file
-- **Theme persistence** across sessions
 
 ## Contributing
 

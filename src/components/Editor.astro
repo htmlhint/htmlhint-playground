@@ -4,44 +4,6 @@
 
 <div id="editor-title" class="mb-3">
   <strong>Place your HTML code here:</strong>
-  <span id="editor-toolbar" class="mb-1">
-    <span class="visually-hidden">Theme:</span>
-    <select id="editor-theme" class="form-select form-select-sm" style="width:fit-content">
-      <optgroup label="Bright">
-        <option value="chrome">Chrome</option>
-        <option value="clouds">Clouds</option>
-        <option value="crimson_editor">Crimson Editor</option>
-        <option value="dawn">Dawn</option>
-        <option value="dreamweaver">Dreamweaver</option>
-        <option value="eclipse">Eclipse</option>
-        <option value="github">GitHub</option>
-        <option value="solarized_light">Solarized Light</option>
-        <option value="textmate">TextMate</option>
-        <option value="tomorrow">Tomorrow</option>
-        <option value="xcode">XCode</option>
-      </optgroup>
-      <optgroup label="Dark">
-        <option value="ambiance">Ambiance</option>
-        <option value="chaos">Chaos</option>
-        <option value="clouds_midnight">Clouds Midnight</option>
-        <option value="cobalt">Cobalt</option>
-        <option value="idle_fingers">idleFingers</option>
-        <option value="kr_theme">krTheme</option>
-        <option value="merbivore">Merbivore</option>
-        <option value="merbivore_soft">Merbivore Soft</option>
-        <option value="mono_industrial">Mono Industrial</option>
-        <option value="monokai">Monokai</option>
-        <option value="pastel_on_dark">Pastel on dark</option>
-        <option value="solarized_dark">Solarized Dark</option>
-        <option value="twilight">Twilight</option>
-        <option value="tomorrow_night">Tomorrow Night</option>
-        <option value="tomorrow_night_blue">Tomorrow Night Blue</option>
-        <option value="tomorrow_night_bright">Tomorrow Night Bright</option>
-        <option value="tomorrow_night_eighties">Tomorrow Night 80s</option>
-        <option value="vibrant_ink">Vibrant Ink</option>
-      </optgroup>
-    </select>
-  </span>
 </div>
 
 <div id="editor"></div>
@@ -50,34 +12,6 @@
   import ace from 'ace-builds';
   import 'ace-builds/src-noconflict/mode-html';
   import 'ace-builds/src-noconflict/theme-merbivore';
-  import 'ace-builds/src-noconflict/theme-chrome';
-  import 'ace-builds/src-noconflict/theme-clouds';
-  import 'ace-builds/src-noconflict/theme-crimson_editor';
-  import 'ace-builds/src-noconflict/theme-dawn';
-  import 'ace-builds/src-noconflict/theme-dreamweaver';
-  import 'ace-builds/src-noconflict/theme-eclipse';
-  import 'ace-builds/src-noconflict/theme-github';
-  import 'ace-builds/src-noconflict/theme-solarized_light';
-  import 'ace-builds/src-noconflict/theme-textmate';
-  import 'ace-builds/src-noconflict/theme-tomorrow';
-  import 'ace-builds/src-noconflict/theme-xcode';
-  import 'ace-builds/src-noconflict/theme-ambiance';
-  import 'ace-builds/src-noconflict/theme-chaos';
-  import 'ace-builds/src-noconflict/theme-clouds_midnight';
-  import 'ace-builds/src-noconflict/theme-cobalt';
-  import 'ace-builds/src-noconflict/theme-idle_fingers';
-  import 'ace-builds/src-noconflict/theme-kr_theme';
-  import 'ace-builds/src-noconflict/theme-merbivore_soft';
-  import 'ace-builds/src-noconflict/theme-mono_industrial';
-  import 'ace-builds/src-noconflict/theme-monokai';
-  import 'ace-builds/src-noconflict/theme-pastel_on_dark';
-  import 'ace-builds/src-noconflict/theme-solarized_dark';
-  import 'ace-builds/src-noconflict/theme-twilight';
-  import 'ace-builds/src-noconflict/theme-tomorrow_night';
-  import 'ace-builds/src-noconflict/theme-tomorrow_night_blue';
-  import 'ace-builds/src-noconflict/theme-tomorrow_night_bright';
-  import 'ace-builds/src-noconflict/theme-tomorrow_night_eighties';
-  import 'ace-builds/src-noconflict/theme-vibrant_ink';
 
   // Make ace globally available
   window.ace = ace;

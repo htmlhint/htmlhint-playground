@@ -20,10 +20,6 @@ const ruleSets = {
   'input-requires-label': true
 };
 
-const settings = {
-  editorTheme: 'merbivore'
-};
-
 // Set from JS because Astro's HTML compression collapses whitespace in markup
 const defaultCode = `<!doctype html>
 <html>
@@ -64,7 +60,6 @@ function setupApp() {
   jShowNext = document.getElementById('show-next');
   jsDownloadConfig = document.getElementById('download-config');
 
-  loadSettings();
   loadRules();
   initEditor();
   initOptions();
@@ -98,17 +93,6 @@ function writeStorage(key, value) {
   }
 }
 
-function loadSettings() {
-  const savedSettings = readStorage('htmlhintSettings');
-  if (savedSettings && typeof savedSettings === 'object') {
-    Object.assign(settings, savedSettings);
-  }
-}
-
-function saveSettings() {
-  writeStorage('htmlhintSettings', settings);
-}
-
 function loadRules() {
   const savedRuleSets = readStorage('htmlhintRules');
   if (savedRuleSets && typeof savedRuleSets === 'object') {
@@ -127,19 +111,10 @@ function saveRules() {
 }
 
 function initEditor() {
-  const jEditorTheme = document.getElementById('editor-theme');
-
-  jEditorTheme.value = settings.editorTheme;
-  jEditorTheme.addEventListener('change', function() {
-    settings.editorTheme = jEditorTheme.value;
-    editor.setTheme("ace/theme/" + settings.editorTheme);
-    saveSettings();
-  });
-
   let upTimer;
   editor = ace.edit("editor");
   editor.setShowPrintMargin(false);
-  editor.setTheme("ace/theme/" + settings.editorTheme);
+  editor.setTheme("ace/theme/merbivore");
   editor.getSession().setMode("ace/mode/html");
   editor.setValue(defaultCode, -1);
 
