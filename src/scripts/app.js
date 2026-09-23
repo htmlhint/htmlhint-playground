@@ -1,5 +1,5 @@
 // Default rules
-const ruleSets = {
+const defaultRuleSets = {
   'tagname-lowercase': true,
   'attr-lowercase': true,
   'attr-value-double-quotes': true,
@@ -19,6 +19,8 @@ const ruleSets = {
   'button-type-require': true,
   'input-requires-label': true
 };
+
+const ruleSets = { ...defaultRuleSets };
 
 // Set from JS because Astro's HTML compression collapses whitespace in markup
 const defaultCode = `<!doctype html>
@@ -307,26 +309,46 @@ function initOptions() {
     });
   });
 
-  // Initialize checkboxes based on saved rules
-  for (const id in ruleSets) {
-    const checkbox = document.getElementById(id);
-    if (checkbox) {
-      checkbox.checked = true;
-      const valueElement = document.getElementById(`${id}_value`);
-      if (valueElement) {
+  syncOptions();
+
+  jsDownloadConfig.addEventListener('click', downloadConfigFile);
+  document.getElementById('reset-rules').addEventListener('click', resetRules);
+}
+
+// Update checkboxes and value selects to match the current rules
+function syncOptions() {
+  document.querySelectorAll('#options input[type=checkbox]').forEach((checkbox) => {
+    const id = checkbox.id;
+    const enabled = id in ruleSets;
+    checkbox.checked = enabled;
+
+    const valueElement = document.getElementById(`${id}_value`);
+    if (valueElement) {
+      if (enabled) {
         valueElement.value = ruleSets[id];
         // Fall back to the first option if the saved value is no longer valid
         if (valueElement.value !== String(ruleSets[id])) {
           valueElement.selectedIndex = 0;
           ruleSets[id] = valueElement.value;
         }
-        const valueArea = document.getElementById(`${id}_valuearea`);
-        if (valueArea) {
-          valueArea.classList.remove('d-none');
-        }
+      } else {
+        valueElement.selectedIndex = 0;
       }
     }
-  }
 
-  jsDownloadConfig.addEventListener('click', downloadConfigFile);
+    const valueArea = document.getElementById(`${id}_valuearea`);
+    if (valueArea) {
+      valueArea.classList.toggle('d-none', !enabled);
+    }
+  });
+}
+
+function resetRules() {
+  for (const key of Object.keys(ruleSets)) {
+    delete ruleSets[key];
+  }
+  Object.assign(ruleSets, defaultRuleSets);
+  syncOptions();
+  saveRules();
+  updateHTMLHint();
 }
