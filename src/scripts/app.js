@@ -278,13 +278,13 @@ function initOptions() {
         }
         const valueArea = document.getElementById(id + '_valuearea');
         if (valueArea) {
-          valueArea.style.display = 'block';
+          valueArea.classList.remove('d-none');
         }
       } else {
         delete ruleSets[id];
         const valueArea = document.getElementById(id + '_valuearea');
         if (valueArea) {
-          valueArea.style.display = 'none';
+          valueArea.classList.add('d-none');
         }
       }
 
@@ -322,7 +322,7 @@ function initOptions() {
         }
         const valueArea = document.getElementById(id + '_valuearea');
         if (valueArea) {
-          valueArea.style.display = 'block';
+          valueArea.classList.remove('d-none');
         }
       }
     }

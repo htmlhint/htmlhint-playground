@@ -78,13 +78,6 @@ body {
   margin-top: 5px;
 }
 
-#id-class-value_valuearea,
-#space-tab-mixed-disabled_valuearea,
-#href-abs-or-rel_valuearea {
-  display: none;
-  margin-top: 5px;
-}
-
 .github-fork {
   position: absolute;
   top: 0;
@@ -120,7 +113,7 @@ body {
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (width <= 768px) {
   #stat-bar {
     flex-direction: column;
     gap: 10px;
