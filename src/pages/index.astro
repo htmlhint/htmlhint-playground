@@ -2,6 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import Editor from '../components/Editor.astro';
 import RulePanel from '../components/RulePanel.astro';
+import htmlhintPkg from 'htmlhint/package.json';
+
+const year = new Date().getFullYear();
 ---
 
 <Layout title="HTMLHint - The Static Code Analysis Tool you need for your HTML">
@@ -13,7 +16,7 @@ import RulePanel from '../components/RulePanel.astro';
         <li><a href="https://htmlhint.com/rules/">Rules</a></li>
         <li><a href="https://github.com/htmlhint/HTMLHint/">Develop</a></li>
       </ul>
-      <h1 class="h3">HTMLHint <span id="version" class="text-muted opacity-75 small"></span></h1>
+      <h1 class="h3">HTMLHint <span id="version" class="text-muted opacity-75 small">v{htmlhintPkg.version}</span></h1>
     </nav>
 
     <hr />
@@ -39,7 +42,7 @@ import RulePanel from '../components/RulePanel.astro';
     <hr />
 
     <footer class="small text-center opacity-75">
-      <p>&copy; HTMLHint 2025</p>
+      <p>&copy; HTMLHint {year}</p>
     </footer>
   </div>
 </Layout>

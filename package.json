@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "ace-builds": "^1.44.0",
-    "astro": "^7.2.10",
+    "astro": "^7.3.4",
     "bootstrap": "^5.3.8",
     "htmlhint": "^1.9.2"
   },
@@ -39,14 +39,14 @@
     "@astrojs/check": "^0.9.10",
     "@eslint/js": "^10.0.1",
     "@fullhuman/postcss-purgecss": "^8.0.0",
-    "@typescript-eslint/eslint-plugin": "^8.58.0",
-    "@typescript-eslint/parser": "^8.58.0",
-    "eslint": "^10.9.1",
-    "eslint-plugin-astro": "^3.1.0",
-    "globals": "^17.7.0",
-    "prettier": "3.9.6",
-    "prettier-plugin-astro": "^0.14.1",
-    "typescript": "^5.9.0"
+    "@typescript-eslint/eslint-plugin": "^8.70.1",
+    "@typescript-eslint/parser": "^8.70.1",
+    "eslint": "^10.11.0",
+    "eslint-plugin-astro": "^3.2.1",
+    "globals": "^17.12.0",
+    "prettier": "3.9.8",
+    "prettier-plugin-astro": "^1.0.1",
+    "typescript": "^6.0.3"
   },
   "volta": {
     "node": "22.22.3"
