@@ -68,26 +68,49 @@ function waitForHTMLHint() {
   }
 }
 
+function readStorage(key) {
+  try {
+    const value = localStorage.getItem(key);
+    return value ? JSON.parse(value) : null;
+  } catch {
+    return null;
+  }
+}
+
+function writeStorage(key, value) {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch {
+    // Storage may be unavailable (e.g. private mode); ignore
+  }
+}
+
 function loadSettings() {
-  const saveSettings = localStorage.getItem('htmlhintSettings');
-  if (saveSettings) {
-    Object.assign(settings, JSON.parse(saveSettings));
+  const savedSettings = readStorage('htmlhintSettings');
+  if (savedSettings && typeof savedSettings === 'object') {
+    Object.assign(settings, savedSettings);
   }
 }
 
 function saveSettings() {
-  localStorage.setItem('htmlhintSettings', JSON.stringify(settings));
+  writeStorage('htmlhintSettings', settings);
 }
 
 function loadRules() {
-  const saveRuleSets = localStorage.getItem('htmlhintRules');
-  if (saveRuleSets) {
-    Object.assign(ruleSets, JSON.parse(saveRuleSets));
+  const savedRuleSets = readStorage('htmlhintRules');
+  if (savedRuleSets && typeof savedRuleSets === 'object') {
+    // Replace the defaults so rules the user disabled stay disabled
+    for (const key of Object.keys(ruleSets)) {
+      delete ruleSets[key];
+    }
+    Object.assign(ruleSets, savedRuleSets);
+    // Clean up a non-rule key stored by older versions
+    delete ruleSets['editor-theme'];
   }
 }
 
 function saveRules() {
-  localStorage.setItem('htmlhintRules', JSON.stringify(ruleSets));
+  writeStorage('htmlhintRules', ruleSets);
 }
 
 function initEditor() {
@@ -140,8 +163,14 @@ function initEditor() {
     readOnly: true
   });
 
-  jShowLast.addEventListener('mousedown', showLastHint);
-  jShowNext.addEventListener('mousedown', showNextHint);
+  jShowLast.addEventListener('click', function() {
+    showLastHint();
+    editor.focus();
+  });
+  jShowNext.addEventListener('click', function() {
+    showNextHint();
+    editor.focus();
+  });
 }
 
 function updateHTMLHint() {
@@ -175,6 +204,9 @@ function updateHTMLHint() {
         raw: message.raw
       });
     }
+
+    // Sort by position so previous/next navigation works correctly
+    errors.sort((a, b) => a.row - b.row || a.column - b.column);
 
     arrHints = errors;
     editor.getSession().setAnnotations(errors);
@@ -236,36 +268,21 @@ function showNextHint() {
 }
 
 function downloadConfigFile() {
-  const downRules = {};
-  for (const key in ruleSets) {
-    if (key !== 'editor-theme') {
-      downRules[key] = ruleSets[key];
-    }
-  }
-
-  const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(downRules, null, 2));
+  const dataStr = "data:application/json;charset=utf-8," + encodeURIComponent(JSON.stringify(ruleSets, null, 2));
   jsDownloadConfig.href = dataStr;
-  jsDownloadConfig.download = 'htmlhintrc';
+  jsDownloadConfig.download = '.htmlhintrc';
 }
 
 function initOptions() {
-  // Set version
-  const versionElement = document.getElementById('version');
-  if (versionElement && window.HTMLHint) {
-    // The new HTMLHint library doesn't expose version/release directly
-    // We'll use a fixed version since we know it's 1.6.3
-    versionElement.textContent = 'v1.8.0';
-  }
-
   // Handle checkbox changes
-  document.querySelectorAll('input[type=checkbox]').forEach(function(checkbox) {
+  document.querySelectorAll('#options input[type=checkbox]').forEach(function(checkbox) {
     checkbox.addEventListener('change', function() {
       const id = this.id;
       const ruleValue = this.checked;
 
       if (ruleValue === true) {
         const valueElement = document.getElementById(id + '_value');
-        if (valueElement && valueElement.length > 0) {
+        if (valueElement) {
           ruleSets[id] = valueElement.value;
         } else {
           ruleSets[id] = ruleValue;
@@ -287,10 +304,14 @@ function initOptions() {
     });
   });
 
-  // Handle select changes
-  document.querySelectorAll('select').forEach(function(select) {
+  // Handle rule value select changes
+  document.querySelectorAll('#options select[id$="_value"]').forEach(function(select) {
     select.addEventListener('change', function() {
-      const id = this.id.replace('_value', '');
+      const id = this.id.replace(/_value$/, '');
+      const checkbox = document.getElementById(id);
+      if (!checkbox || !checkbox.checked) {
+        return;
+      }
       ruleSets[id] = this.value;
       saveRules();
       updateHTMLHint();
@@ -305,6 +326,11 @@ function initOptions() {
       const valueElement = document.getElementById(id + '_value');
       if (valueElement) {
         valueElement.value = ruleSets[id];
+        // Fall back to the first option if the saved value is no longer valid
+        if (valueElement.value !== String(ruleSets[id])) {
+          valueElement.selectedIndex = 0;
+          ruleSets[id] = valueElement.value;
+        }
         const valueArea = document.getElementById(id + '_valuearea');
         if (valueArea) {
           valueArea.style.display = 'block';
@@ -313,5 +339,5 @@ function initOptions() {
     }
   }
 
-  jsDownloadConfig.addEventListener('mousedown', downloadConfigFile);
+  jsDownloadConfig.addEventListener('click', downloadConfigFile);
 }
