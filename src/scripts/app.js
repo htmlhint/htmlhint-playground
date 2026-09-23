@@ -118,7 +118,7 @@ function initEditor() {
   editor.getSession().setMode("ace/mode/html");
   editor.setValue(defaultCode, -1);
 
-  editor.on('change', function() {
+  editor.on('change', () => {
     clearTimeout(upTimer);
     upTimer = setTimeout(updateHTMLHint, 500);
   });
@@ -152,11 +152,11 @@ function initEditor() {
     readOnly: true
   });
 
-  jShowLast.addEventListener('click', function() {
+  jShowLast.addEventListener('click', () => {
     showLastHint();
     editor.focus();
   });
-  jShowNext.addEventListener('click', function() {
+  jShowNext.addEventListener('click', () => {
     showNextHint();
     editor.focus();
   });
@@ -201,7 +201,7 @@ function updateHTMLHint() {
     editor.getSession().setAnnotations(errors);
 
     const errorCount = errors.length;
-    jHintState.innerHTML = 'Find Hints: <strong>' + errorCount + '</strong>';
+    jHintState.innerHTML = `Find Hints: <strong>${errorCount}</strong>`;
 
     if (errorCount > 0) {
       jButtonArea.style.display = 'block';
@@ -257,32 +257,32 @@ function showNextHint() {
 }
 
 function downloadConfigFile() {
-  const dataStr = "data:application/json;charset=utf-8," + encodeURIComponent(JSON.stringify(ruleSets, null, 2));
+  const dataStr = `data:application/json;charset=utf-8,${encodeURIComponent(JSON.stringify(ruleSets, null, 2))}`;
   jsDownloadConfig.href = dataStr;
   jsDownloadConfig.download = '.htmlhintrc';
 }
 
 function initOptions() {
   // Handle checkbox changes
-  document.querySelectorAll('#options input[type=checkbox]').forEach(function(checkbox) {
+  document.querySelectorAll('#options input[type=checkbox]').forEach((checkbox) => {
     checkbox.addEventListener('change', function() {
       const id = this.id;
       const ruleValue = this.checked;
 
       if (ruleValue === true) {
-        const valueElement = document.getElementById(id + '_value');
+        const valueElement = document.getElementById(`${id}_value`);
         if (valueElement) {
           ruleSets[id] = valueElement.value;
         } else {
           ruleSets[id] = ruleValue;
         }
-        const valueArea = document.getElementById(id + '_valuearea');
+        const valueArea = document.getElementById(`${id}_valuearea`);
         if (valueArea) {
           valueArea.classList.remove('d-none');
         }
       } else {
         delete ruleSets[id];
-        const valueArea = document.getElementById(id + '_valuearea');
+        const valueArea = document.getElementById(`${id}_valuearea`);
         if (valueArea) {
           valueArea.classList.add('d-none');
         }
@@ -294,7 +294,7 @@ function initOptions() {
   });
 
   // Handle rule value select changes
-  document.querySelectorAll('#options select[id$="_value"]').forEach(function(select) {
+  document.querySelectorAll('#options select[id$="_value"]').forEach((select) => {
     select.addEventListener('change', function() {
       const id = this.id.replace(/_value$/, '');
       const checkbox = document.getElementById(id);
@@ -312,7 +312,7 @@ function initOptions() {
     const checkbox = document.getElementById(id);
     if (checkbox) {
       checkbox.checked = true;
-      const valueElement = document.getElementById(id + '_value');
+      const valueElement = document.getElementById(`${id}_value`);
       if (valueElement) {
         valueElement.value = ruleSets[id];
         // Fall back to the first option if the saved value is no longer valid
@@ -320,7 +320,7 @@ function initOptions() {
           valueElement.selectedIndex = 0;
           ruleSets[id] = valueElement.value;
         }
-        const valueArea = document.getElementById(id + '_valuearea');
+        const valueArea = document.getElementById(`${id}_valuearea`);
         if (valueArea) {
           valueArea.classList.remove('d-none');
         }
