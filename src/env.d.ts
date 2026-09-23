@@ -8,7 +8,4 @@ declare global {
   }
 }
 
-declare module 'ace-builds';
-declare module 'htmlhint';
-
 export {};
