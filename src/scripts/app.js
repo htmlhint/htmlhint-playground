@@ -24,6 +24,19 @@ const settings = {
   editorTheme: 'merbivore'
 };
 
+// Set from JS because Astro's HTML compression collapses whitespace in markup
+const defaultCode = `<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>HTMLHint</title>
+  </head>
+  <body>
+    <div>HTMLHint: help your html code better
+  </body>
+</html>
+`;
+
 let editor;
 let arrHints = [];
 
@@ -128,6 +141,7 @@ function initEditor() {
   editor.setShowPrintMargin(false);
   editor.setTheme("ace/theme/" + settings.editorTheme);
   editor.getSession().setMode("ace/mode/html");
+  editor.setValue(defaultCode, -1);
 
   editor.on('change', function() {
     clearTimeout(upTimer);
