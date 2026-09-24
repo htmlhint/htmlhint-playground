@@ -41,8 +41,16 @@ const year = new Date().getFullYear();
 
     <hr />
 
-    <footer class="small text-center opacity-75">
-      <p>&copy; HTMLHint {year}</p>
+    <footer class="d-flex flex-wrap justify-content-between align-items-center gap-2 small opacity-75 mb-3">
+      <p class="mb-0">&copy; HTMLHint {year}</p>
+      <ul class="nav gap-3">
+        <li class="nav-item">
+          <a href="https://github.com/htmlhint/htmlhint-playground">GitHub</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://htmlhint.com/">htmlhint.com</a>
+        </li>
+      </ul>
     </footer>
   </div>
 </Layout>
