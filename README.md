@@ -111,7 +111,7 @@ The playground supports all HTMLHint rules organized into categories:
 - **Syntax highlighting** for HTML
 - **Real-time validation** with 500ms debounce
 - **Error annotations** in the editor
-- **Keyboard navigation** between hints (Ctrl+Left/Right)
+- **Keyboard navigation** between hints (F8 / Shift+F8)
 
 ### Configuration
 
