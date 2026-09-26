@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "ace-builds": "^1.44.0",
-    "astro": "^7.3.4",
+    "astro": "^7.3.5",
     "bootstrap": "^5.3.8",
     "htmlhint": "^1.9.2"
   },
@@ -44,8 +44,8 @@
     "eslint": "^10.11.0",
     "eslint-plugin-astro": "^3.2.1",
     "globals": "^17.12.0",
-    "prettier": "3.9.8",
-    "prettier-plugin-astro": "^1.0.1",
+    "prettier": "3.9.9",
+    "prettier-plugin-astro": "^1.1.0",
     "typescript": "^6.0.3"
   },
   "volta": {
