@@ -17,22 +17,30 @@ import '../styles/index.css';
 <!doctype html>
 <html lang="en" data-bs-theme="dark">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
-    <meta name="description" content="HTMLHint - The Static Code Analysis Tool you need for your HTML">
-    <meta name="last-modified" content={lastModified}>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <meta name="color-scheme" content="dark"/>
-    <link rel="canonical" href="https://playground.htmlhint.com/">
-    <meta name="fediverse:creator" content="@htmlhint@mastodon.social">
+    <meta
+      name="description"
+      content="HTMLHint - The Static Code Analysis Tool you need for your HTML"
+    />
+    <meta name="last-modified" content={lastModified} />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="canonical" href="https://playground.htmlhint.com/" />
+    <meta name="fediverse:creator" content="@htmlhint@mastodon.social" />
     <script>
-      window.plausible = window.plausible || function(...args: unknown[]) { (window.plausible.q = window.plausible.q || []).push(args) };
+      window.plausible =
+        window.plausible ||
+        function (...args: unknown[]) {
+          (window.plausible.q = window.plausible.q || []).push(args);
+        };
 
       // Load analytics last so it never competes with the app; queued calls are replayed
       window.addEventListener('load', () => {
         const script = document.createElement('script');
-        script.src = 'https://plausible.io/js/script.hash.outbound-links.pageview-props.tagged-events.js';
+        script.src =
+          'https://plausible.io/js/script.hash.outbound-links.pageview-props.tagged-events.js';
         script.dataset.domain = 'playground.htmlhint.com';
         script.fetchPriority = 'low';
         document.body.append(script);
