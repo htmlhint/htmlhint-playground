@@ -26,8 +26,18 @@ import '../styles/index.css';
     <meta name="color-scheme" content="dark"/>
     <link rel="canonical" href="https://playground.htmlhint.com/">
     <meta name="fediverse:creator" content="@htmlhint@mastodon.social">
-    <script async data-domain="playground.htmlhint.com" src="https://plausible.io/js/script.hash.outbound-links.pageview-props.tagged-events.js" is:inline></script>
-    <script>window.plausible = window.plausible || function(...args: unknown[]) { (window.plausible.q = window.plausible.q || []).push(args) }</script>
+    <script>
+      window.plausible = window.plausible || function(...args: unknown[]) { (window.plausible.q = window.plausible.q || []).push(args) };
+
+      // Load analytics last so it never competes with the app; queued calls are replayed
+      window.addEventListener('load', () => {
+        const script = document.createElement('script');
+        script.src = 'https://plausible.io/js/script.hash.outbound-links.pageview-props.tagged-events.js';
+        script.dataset.domain = 'playground.htmlhint.com';
+        script.fetchPriority = 'low';
+        document.body.append(script);
+      });
+    </script>
   </head>
   <body>
     <slot />

@@ -70,7 +70,6 @@ export default [
       ecmaVersion: 'latest',
       sourceType: 'module',
       globals: {
-        ace: 'readonly',
         ...globals.browser,
         ...globals.node
       }
