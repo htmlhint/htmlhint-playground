@@ -6,24 +6,6 @@
   <strong>Place your HTML code here:</strong>
 </div>
 
-<div id="editor"></div>
-
-<script>
-  import ace from 'ace-builds';
-  import 'ace-builds/src-noconflict/mode-html';
-  import 'ace-builds/src-noconflict/theme-merbivore';
-
-  // Make ace globally available
-  window.ace = ace;
-</script>
-
-<script>
-  import HTMLHint from 'htmlhint';
-
-  // Make HTMLHint globally available
-  window.HTMLHint = HTMLHint;
-</script>
-
-<script>
-  import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-</script>
+<div id="editor">
+  <span class="d-block p-2 text-body-secondary">Loading editor…</span>
+</div>

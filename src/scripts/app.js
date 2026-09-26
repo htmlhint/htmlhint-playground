@@ -1,3 +1,5 @@
+import HTMLHint from 'htmlhint';
+
 // Default rules
 const defaultRuleSets = {
   'tagname-lowercase': true,
@@ -54,7 +56,7 @@ export function initApp() {
   }
 }
 
-function setupApp() {
+async function setupApp() {
   // Initialize DOM elements
   jHintState = document.getElementById('hint-state');
   jButtonArea = document.getElementById('button-area');
@@ -63,19 +65,17 @@ function setupApp() {
   jsDownloadConfig = document.getElementById('download-config');
 
   loadRules();
-  initEditor();
   initOptions();
 
-  // Wait for HTMLHint to be loaded
-  waitForHTMLHint();
-}
-
-function waitForHTMLHint() {
-  if (window.HTMLHint && window.HTMLHint.HTMLHint && typeof window.HTMLHint.HTMLHint.verify === 'function') {
-    updateHTMLHint();
-  } else {
-    setTimeout(waitForHTMLHint, 50);
+  // Ace is large, so load it after the rest of the page is interactive
+  try {
+    await initEditor();
+  } catch (error) {
+    console.error('Error loading the editor:', error);
+    jHintState.innerHTML = 'Error: <strong>The editor failed to load</strong>';
+    return;
   }
+  updateHTMLHint();
 }
 
 function readStorage(key) {
@@ -112,8 +112,14 @@ function saveRules() {
   writeStorage('htmlhintRules', ruleSets);
 }
 
-function initEditor() {
+async function initEditor() {
   let upTimer;
+  const { default: ace } = await import('ace-builds');
+  // Modes and themes register themselves on the global ace, so load them after it
+  await Promise.all([
+    import('ace-builds/src-noconflict/mode-html'),
+    import('ace-builds/src-noconflict/theme-merbivore')
+  ]);
   editor = ace.edit("editor");
   editor.setShowPrintMargin(false);
   editor.setTheme("ace/theme/merbivore");
@@ -167,24 +173,15 @@ function initEditor() {
 }
 
 function updateHTMLHint() {
-  if (!window.HTMLHint) {
-    console.warn('HTMLHint not loaded yet');
-    return;
-  }
-
-  // The HTMLHint library exposes the verify method on HTMLHint.HTMLHint
-  const htmlHintInstance = window.HTMLHint.HTMLHint;
-
-  if (!htmlHintInstance || typeof htmlHintInstance.verify !== 'function') {
-    console.error('HTMLHint.verify is not a function. HTMLHint object:', window.HTMLHint);
+  // Rule changes can arrive before the editor has loaded
+  if (!editor) {
     return;
   }
 
   const code = editor.getValue();
 
   try {
-    // Use the correct API for the local HTMLHint file
-    const messages = htmlHintInstance.verify(code, ruleSets);
+    const messages = HTMLHint.HTMLHint.verify(code, ruleSets);
     const errors = [];
 
     for (let i = 0, l = messages.length; i < l; i++) {
