@@ -12,14 +12,6 @@ body {
   line-height: 40px;
 }
 
-#editor-title {
-  margin-bottom: 10px;
-}
-
-#editor-title strong {
-  font-size: 16px;
-}
-
 #editor {
   height: 400px;
   border: 1px solid #ccc;
@@ -29,7 +21,6 @@ body {
 #stat-bar {
   margin: 10px 0;
   padding: 10px;
-  background-color: #f5f5f5;
   border-radius: 4px;
   display: flex;
   justify-content: space-between;
@@ -49,7 +40,6 @@ body {
 }
 
 #options h3 {
-  margin-top: 0;
   font-size: 16px;
   font-weight: bold;
 }
@@ -66,7 +56,6 @@ body {
 #options .checkbox {
   display: block;
   cursor: pointer;
-  font-weight: normal;
 }
 
 #options .checkbox input {
@@ -74,42 +63,7 @@ body {
 }
 
 #options .span7 {
-  width: 100%;
   margin-top: 5px;
-}
-
-.github-fork {
-  position: absolute;
-  top: 0;
-  right: 0;
-  border: 0;
-  z-index: 1000;
-}
-
-.github-fork img {
-  border: 0;
-}
-
-.opacity-75 {
-  opacity: 0.75;
-}
-
-/* Bootstrap overrides for better compatibility */
-.nav-pills > li > a {
-  border-radius: 4px;
-}
-
-.nav-pills > li.active > a {
-  background-color: #337ab7;
-}
-
-.nav-pills > li.active > a:hover {
-  background-color: #286090;
-}
-
-.btn-block {
-  display: block;
-  width: 100%;
 }
 
 /* Responsive adjustments */

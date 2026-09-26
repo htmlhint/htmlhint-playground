@@ -118,6 +118,8 @@ function initEditor() {
   editor.setShowPrintMargin(false);
   editor.setTheme("ace/theme/merbivore");
   editor.getSession().setMode("ace/mode/html");
+  // HTMLHint provides the annotations; Ace's own HTML worker isn't bundled
+  editor.getSession().setUseWorker(false);
   editor.setValue(defaultCode, -1);
 
   editor.on('change', () => {

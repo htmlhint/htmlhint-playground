@@ -23,7 +23,6 @@ module.exports = {
         'btn-sm',
         'btn-primary',
         'btn-success',
-        'btn-block',
         'text-center',
         'text-muted',
         'opacity-75',
