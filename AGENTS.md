@@ -10,3 +10,4 @@
 - Use latest Astro for building the website.
 - Locally host JS/CSS - don't use third-party CDNs.
 - Use Bootstrap utility CSS classes for styling rather than custom CSS.
+- Never add `initial-scale=1` to the viewport meta tag; `<meta name="viewport" content="width=device-width">` is all that is needed.
