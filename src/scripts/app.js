@@ -24,6 +24,14 @@ const defaultRuleSets = {
 
 const ruleSets = { ...defaultRuleSets };
 
+// Rules that contradict each other; enabling one disables the other
+const conflictingRules = {
+  'attr-value-double-quotes': 'attr-value-single-quotes',
+  'attr-value-single-quotes': 'attr-value-double-quotes',
+  'tag-self-close': 'empty-tag-not-self-closed',
+  'empty-tag-not-self-closed': 'tag-self-close'
+};
+
 // Set from JS because Astro's HTML compression collapses whitespace in markup
 const defaultCode = `<!doctype html>
 <html>
@@ -133,31 +141,17 @@ async function initEditor() {
     upTimer = setTimeout(updateHTMLHint, 500);
   });
 
-  // Add keyboard shortcuts
+  // F8 / Shift-F8 match other editors and don't override Ace's cursor movement keys
   editor.commands.addCommand({
-    name: 'left',
-    bindKey: {win: 'Ctrl-Left', mac: 'Command-Left'},
+    name: 'previousHint',
+    bindKey: {win: 'Shift-F8', mac: 'Shift-F8'},
     exec: showLastHint,
     readOnly: true
   });
 
   editor.commands.addCommand({
-    name: 'up',
-    bindKey: {win: 'Ctrl-Up', mac: 'Command-Up'},
-    exec: showLastHint,
-    readOnly: true
-  });
-
-  editor.commands.addCommand({
-    name: 'right',
-    bindKey: {win: 'Ctrl-Right', mac: 'Command-Right'},
-    exec: showNextHint,
-    readOnly: true
-  });
-
-  editor.commands.addCommand({
-    name: 'down',
-    bindKey: {win: 'Ctrl-Down', mac: 'Command-Down'},
+    name: 'nextHint',
+    bindKey: {win: 'F8', mac: 'F8'},
     exec: showNextHint,
     readOnly: true
   });
@@ -202,7 +196,7 @@ function updateHTMLHint() {
     editor.getSession().setAnnotations(errors);
 
     const errorCount = errors.length;
-    jHintState.innerHTML = `Find Hints: <strong>${errorCount}</strong>`;
+    jHintState.innerHTML = `Hints found: <strong>${errorCount}</strong>`;
 
     if (errorCount > 0) {
       jButtonArea.style.display = 'block';
@@ -211,49 +205,37 @@ function updateHTMLHint() {
     }
   } catch (error) {
     console.error('Error running HTMLHint:', error);
+    arrHints = [];
+    editor.getSession().clearAnnotations();
+    jButtonArea.style.display = 'none';
     jHintState.innerHTML = 'Error: <strong>HTMLHint failed to run</strong>';
   }
 }
 
+function moveToHint(hint) {
+  editor.clearSelection();
+  editor.gotoLine(hint.row + 1, hint.column, true);
+}
+
+// Move to the closest hint before the cursor, wrapping to the last one
 function showLastHint() {
-  if (arrHints.length > 0) {
-    const cursor = editor.selection.getCursor();
-    const curRow = cursor.row;
-    const curColumn = cursor.column;
-
-    for (let i = arrHints.length - 1; i >= 0; i--) {
-      const hint = arrHints[i];
-      const hintRow = hint.row;
-      const hintCol = hint.column;
-
-      if (hintRow < curRow || (hintRow === curRow && hintCol < curColumn)) {
-        editor.moveCursorTo(hintRow, hintCol);
-        editor.selection.clearSelection();
-        break;
-      }
-    }
+  if (arrHints.length === 0) {
+    return false;
   }
+  const { row, column } = editor.selection.getCursor();
+  const hint = arrHints.findLast((h) => h.row < row || (h.row === row && h.column < column));
+  moveToHint(hint || arrHints[arrHints.length - 1]);
   return false;
 }
 
+// Move to the closest hint after the cursor, wrapping to the first one
 function showNextHint() {
-  if (arrHints.length > 0) {
-    const cursor = editor.selection.getCursor();
-    const curRow = cursor.row;
-    const curColumn = cursor.column;
-
-    for (let i = 0; i < arrHints.length; i++) {
-      const hint = arrHints[i];
-      const hintRow = hint.row;
-      const hintCol = hint.column;
-
-      if (hintRow > curRow || (hintRow === curRow && hintCol > curColumn)) {
-        editor.moveCursorTo(hintRow, hintCol);
-        editor.selection.clearSelection();
-        break;
-      }
-    }
+  if (arrHints.length === 0) {
+    return false;
   }
+  const { row, column } = editor.selection.getCursor();
+  const hint = arrHints.find((h) => h.row > row || (h.row === row && h.column > column));
+  moveToHint(hint || arrHints[0]);
   return false;
 }
 
@@ -280,6 +262,11 @@ function initOptions() {
         const valueArea = document.getElementById(`${id}_valuearea`);
         if (valueArea) {
           valueArea.classList.remove('d-none');
+        }
+        const conflict = conflictingRules[id];
+        if (conflict && conflict in ruleSets) {
+          delete ruleSets[conflict];
+          syncOptions();
         }
       } else {
         delete ruleSets[id];
@@ -329,6 +316,7 @@ function syncOptions() {
         if (valueElement.value !== String(ruleSets[id])) {
           valueElement.selectedIndex = 0;
           ruleSets[id] = valueElement.value;
+          saveRules();
         }
       } else {
         valueElement.selectedIndex = 0;

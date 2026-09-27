@@ -9,15 +9,14 @@ const year = new Date().getFullYear();
 
 <Layout title="HTMLHint - The Static Code Analysis Tool you need for your HTML">
   <div class="container">
-    <nav class="masthead">
-      <ul class="nav nav-pills float-end" hidden>
-        <li class="active" hidden><a href="https://htmlhint.com/">Home</a></li>
-        <li><a href="https://htmlhint.com/usage/cli/">Usage</a></li>
-        <li><a href="https://htmlhint.com/rules/">Rules</a></li>
-        <li><a href="https://github.com/htmlhint/HTMLHint/">Develop</a></li>
-      </ul>
-      <h1 class="h3">HTMLHint <span id="version" class="text-muted opacity-75 small">v{htmlhintPkg.version}</span></h1>
-    </nav>
+    <header class="masthead">
+      <h1 class="h3">
+        HTMLHint{' '}
+        <span id="version" class="text-muted opacity-75 small">
+          v{htmlhintPkg.version}
+        </span>
+      </h1>
+    </header>
 
     <hr />
 
@@ -25,14 +24,14 @@ const year = new Date().getFullYear();
       <Editor />
 
       <div id="stat-bar" class="bg-black bg-opacity-25">
-        <span id="hint-state"></span>
+        <span id="hint-state" role="status"></span>
         <div id="button-area">
-          <button id="show-last" class="btn btn-sm btn-primary" type="button" title="Ctrl + Left"
-            >Previous</button
-          >
-          <button id="show-next" class="btn btn-sm btn-primary" type="button" title="Ctrl + Right"
-            >Next</button
-          >
+          <button id="show-last" class="btn btn-sm btn-primary" type="button" title="Shift + F8">
+            Previous
+          </button>
+          <button id="show-next" class="btn btn-sm btn-primary" type="button" title="F8">
+            Next
+          </button>
         </div>
       </div>
 
