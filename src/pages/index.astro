@@ -12,7 +12,7 @@ const year = new Date().getFullYear();
     <header class="masthead">
       <h1 class="h3">
         HTMLHint{' '}
-        <span id="version" class="text-muted opacity-75 small">
+        <span id="version" class="fg-3 opacity-75 small">
           v{htmlhintPkg.version}
         </span>
       </h1>
@@ -23,13 +23,18 @@ const year = new Date().getFullYear();
     <main>
       <Editor />
 
-      <div id="stat-bar" class="bg-black bg-opacity-25">
+      <div id="stat-bar" class="bg-black bg-20">
         <span id="hint-state" role="status"></span>
         <div id="button-area">
-          <button id="show-last" class="btn btn-sm btn-primary" type="button" title="Shift + F8">
+          <button
+            id="show-last"
+            class="btn-solid theme-primary btn-sm"
+            type="button"
+            title="Shift + F8"
+          >
             Previous
           </button>
-          <button id="show-next" class="btn btn-sm btn-primary" type="button" title="F8">
+          <button id="show-next" class="btn-solid theme-primary btn-sm" type="button" title="F8">
             Next
           </button>
         </div>
@@ -40,9 +45,9 @@ const year = new Date().getFullYear();
 
     <hr />
 
-    <footer class="d-flex flex-wrap justify-content-between align-items-center gap-2 small opacity-75 mb-3">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center gap-3 small opacity-75 mb-5">
       <p class="mb-0">&copy; HTMLHint {year}</p>
-      <ul class="nav gap-3">
+      <ul class="nav gap-5">
         <li class="nav-item">
           <a href="https://github.com/htmlhint/htmlhint-playground">GitHub</a>
         </li>
