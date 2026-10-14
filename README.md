@@ -12,6 +12,7 @@ A modern, interactive playground for testing HTMLHint rules and configurations. 
 - **Responsive design** that works on desktop and mobile
 - **Modern tech stack** built with Astro, TypeScript, and ES modules
 
+<!--
 ## What's New in v2.0
 
 - **Rebuilt with Astro** for better performance and developer experience
@@ -21,13 +22,9 @@ A modern, interactive playground for testing HTMLHint rules and configurations. 
 - **TypeScript support** for better development experience
 - **Improved responsive design** with Bootstrap 5
 - **Better accessibility** and modern web standards
+-->
 
 ## Getting Started
-
-### Prerequisites
-
-- Node.js 18.0.0 or higher
-- npm or yarn
 
 ### Installation
 
