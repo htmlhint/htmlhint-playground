@@ -41,9 +41,9 @@
     "@fullhuman/postcss-purgecss": "^8.0.0",
     "@typescript-eslint/eslint-plugin": "^8.70.1",
     "@typescript-eslint/parser": "^8.70.1",
-    "eslint": "^10.11.0",
+    "eslint": "^10.12.0",
     "eslint-plugin-astro": "^3.2.1",
-    "globals": "^17.12.0",
+    "globals": "^17.13.0",
     "prettier": "3.9.10",
     "prettier-plugin-astro": "^1.1.0",
     "typescript": "^6.0.3"
