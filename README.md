@@ -12,18 +12,6 @@ A modern, interactive playground for testing HTMLHint rules and configurations. 
 - **Responsive design** that works on desktop and mobile
 - **Modern tech stack** built with Astro, TypeScript, and ES modules
 
-<!--
-## What's New in v2.0
-
-- **Rebuilt with Astro** for better performance and developer experience
-- **Latest HTMLHint library** (v1.1.4) with all current rules
-- **Removed CSSLint and JSHint** dependencies for cleaner, focused HTML validation
-- **Modern JavaScript** using ES modules and modern browser APIs
-- **TypeScript support** for better development experience
-- **Improved responsive design** with Bootstrap 5
-- **Better accessibility** and modern web standards
--->
-
 ## Getting Started
 
 ### Installation
